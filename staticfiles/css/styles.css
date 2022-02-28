@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka&family=Hubballi&family=Syne+Mono&display=swap");
+
+/* 
+font-family: 'Fredoka', sans-serif;
+font-family: 'Hubballi', cursive;
+font-family: 'Syne Mono', monospace;
+*/
+
+body,
+html {
+  height: 100vh !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  scroll-behavior: smooth !important;
+  font-family: "Syne Mono", monospace !important;
+  background-color: whitesmoke !important;
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: gray;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #343a40;
+  border: 1px solid darkslategrey;
+  border-radius: 2rem;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #343a40 white;
+}
+
+.nav-item {
+  margin-right: 1rem !important;
+}
+
+.nav-link {
+  color: white !important;
+}
+
+.nav-link:hover,
+.navbar-brand:hover {
+  color: darkgray !important;
+}
+
+#back-top {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.main-body {
+  padding: 1rem 0;
+}
+
+.footer {
+  width: 100%;
+  padding: 1rem 0;
+}
+
+#credits {
+  padding: 0.5rem 0;
+}
+
+#site-logo {
+  width: 300px;
+}
+
+.footer-link {
+  padding: 0 1rem;
+  text-decoration: none;
+}
