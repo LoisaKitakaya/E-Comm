@@ -76,3 +76,21 @@ html {
   padding: 0 1rem;
   text-decoration: none;
 }
+
+.card-img-overlay {
+  background-color: rgba(245, 245, 245, 0.507);
+}
+
+.card-img-overlay p,
+.card-img-overlay h3 {
+  font-size: x-large !important;
+}
+
+.card-img-overlay h3 {
+  text-decoration: underline;
+}
+
+.vendor-forms {
+  width: 85%;
+  margin: auto;
+}
