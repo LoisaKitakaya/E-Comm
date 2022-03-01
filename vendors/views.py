@@ -1,6 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout as dj_logout, login as dj_login
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.models import User
+from products.models import Product
+from .models import VendorProfile
 from .forms import CreateNewUser, CreateVendorProfile
 from django.contrib.auth.decorators import login_required
 
@@ -185,10 +188,36 @@ def logout_vendor(request):
 @login_required(login_url='login')
 def dashboard(request):
 
+    logged_in_user = request.user
+
+    user = User.objects.get(username=logged_in_user)
+
+    print(user)
+
+    user_header = 'Vendor account summary'
+
+    profile = VendorProfile.objects.filter(user=logged_in_user.id)
+
+    print(profile)
+
+    profile_header = 'Business profile summary'
+
+    products = Product.objects.select_related('vendor').filter(vendor=logged_in_user.id)
+
+    products_header = 'Business Products'
+
     subtitle = 'Dashboard'
 
     context = {
         'header': subtitle,
+        'current_user': user,
+        'business_profile': profile,
+        'business_products': products,
+        # 
+        'user_header': user_header,
+        'profile_header': profile_header,
+        'products_header': products_header,
+        'user': logged_in_user,
     }
 
     return render(request, 'vendors/vendor_dashboard.html', context)

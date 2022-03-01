@@ -152,3 +152,9 @@ CKEDITOR_UPLOAD_PATH = 'product_description/'
 CKEDITOR_IMAGE_BACKEND = 'pillow'
 
 CKEDITOR_RESTRICT_BY_USER = True
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': 790,
+    },
+}

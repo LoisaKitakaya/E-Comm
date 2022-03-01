@@ -151,3 +151,7 @@ html {
 .tab-page {
   padding: 1rem;
 }
+
+#profile-img {
+  width: 250px;
+}
