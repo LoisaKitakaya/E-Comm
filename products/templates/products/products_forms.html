@@ -1,0 +1,57 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load bootstrap -->
+{% load bootstrap5 %}
+<!-- load bootstrap -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Vendor {{ header }} {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<div class="product-forms">
+  <div class="card text-center">
+    <div class="card-header">{{ form_title }} Form</div>
+    <div class="card-body">
+      <form method="post" enctype="multipart/form-data" class="vendor-forms">
+        <!-- csrf & form -->
+        {% csrf_token %}
+        <!-- csrf & form -->
+        {% bootstrap_form form %}
+        <!-- csrf & form -->
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+    </div>
+    <div class="card-footer text-muted">
+      {{ form_footer }} Click
+      <!-- if -->
+      {% if url == 'create' %}
+      <!-- if -->
+      <a href="{% url 'create_vendor_account' %}">here</a>.
+      <!-- elif -->
+      {% elif url == 'login' %}
+      <!-- elif -->
+      <a href="{% url 'login' %}">here</a>.
+      <!-- elif -->
+      {% elif url == 'dashboard' %}
+      <!-- elif -->
+      <a href="{% url 'dashboard' %}">here</a>.
+      <!-- endif -->
+      {% endif %}
+      <!-- endif -->
+    </div>
+  </div>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->
