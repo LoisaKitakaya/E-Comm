@@ -1,0 +1,151 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Vendor {{ header }} {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<div class="vendor-dashboard">
+  <!-- tab navigation -->
+  <ul class="nav nav-tabs bg-dark">
+    <li class="nav-item" id="dash-home">
+      <a class="nav-link active" href="#" id="link-home">Home</a>
+    </li>
+    <li class="nav-item" id="dash-profile">
+      <a class="nav-link" href="#" id="link-profile">Profile</a>
+    </li>
+    <li class="nav-item" id="dash-products">
+      <a class="nav-link" href="#" id="link-products">Products</a>
+    </li>
+    <li class="nav-item" id="dash-orders">
+      <a class="nav-link" href="#" id="link-orders">Orders</a>
+    </li>
+    <li class="nav-item">
+      <a href="{% url 'logout_vendor' %}" class="btn-outline-danger btn"
+        >logout</a
+      >
+    </li>
+  </ul>
+  <!-- tab navigation -->
+
+  <!-- tab pages -->
+  <div class="tab-page bg-light">
+    <div id="div-home">
+      <h1>Home</h1>
+      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur,
+      accusamus laborum provident minima tenetur est labore, laboriosam
+      voluptatum aperiam saepe voluptate repellat qui explicabo reiciendis optio
+      consequatur delectus dolorum deserunt debitis reprehenderit obcaecati!
+      Provident, soluta. Optio voluptatum reiciendis amet illo nisi itaque
+      sapiente aut, esse cumque illum. Voluptatem iure asperiores incidunt
+      expedita enim illo possimus veniam autem, nihil voluptas necessitatibus
+      quae quam adipisci quaerat atque, tenetur dolore sequi magnam fuga modi
+      esse itaque odit sunt. Cumque iusto dicta libero nam necessitatibus,
+      ducimus dolorum. Ipsum, quisquam, nobis iusto repudiandae vel provident
+      rem adipisci facilis deserunt odio inventore aliquam harum nam ad
+      voluptatem eaque tempora nesciunt soluta eos iste optio at dolore iure.
+      Dolores, aspernatur soluta ipsum libero eveniet ea mollitia eius quidem
+      maxime dicta deserunt consequatur repellat magni placeat enim quaerat
+      laudantium nam doloremque iste, fugiat dolorum alias! Explicabo nisi
+      tempore nulla, consectetur error amet inventore distinctio facilis atque
+      itaque a voluptate sapiente corrupti asperiores commodi delectus nostrum
+      quod vero esse, eos culpa? Quam magni nobis non incidunt, dolore
+      voluptates. Veniam quidem architecto est, harum assumenda quo facilis rem
+      unde? Quaerat voluptatum alias impedit, commodi repellat tempora
+      praesentium in eius iure itaque est sapiente eos, animi, saepe quia totam
+      accusamus! Quaerat!
+    </div>
+    <div id="div-profile">
+      <h1>Profile</h1>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita dolorem
+      sed maiores, esse nisi enim. Beatae, optio. Quaerat natus voluptatum quis
+      facilis quas quae quod blanditiis et. Sed enim delectus distinctio
+      incidunt fugiat pariatur veniam dolorem nam, magni nulla quam quia non
+      eius, rem tenetur sint porro tempore, dolore quo corrupti iure ut
+      necessitatibus autem. Quos, maiores quas praesentium voluptate consequatur
+      laborum modi optio sit adipisci officia dolor cumque obcaecati cum alias
+      molestiae! Modi culpa ipsam illum necessitatibus. Cupiditate pariatur
+      commodi suscipit animi provident sed tenetur sapiente! Eveniet cumque
+      animi qui repellendus velit, repellat officia aperiam maiores.
+      Reprehenderit, perspiciatis sunt aspernatur ea eos distinctio cupiditate
+      libero laboriosam cum alias voluptatem, voluptatibus nulla rem quos
+      provident facilis magni nisi temporibus aperiam omnis fugiat aliquam!
+      Dolorem perspiciatis dolorum assumenda ab dolor unde sit nulla non cumque,
+      doloribus facere hic, nam illo facilis consectetur maiores explicabo
+      delectus sunt ex beatae libero. Ipsam consequuntur voluptas dolor nobis
+      laudantium, doloremque expedita tempore. Ad, obcaecati! Alias, reiciendis,
+      magni, maiores perferendis quas molestias ea exercitationem minus rerum
+      explicabo saepe rem. Accusantium sequi, accusamus harum porro eum aperiam
+      tempora dolore blanditiis quos aliquam explicabo nobis minus dignissimos
+      soluta voluptate quo est quibusdam voluptatibus. Eligendi sequi soluta
+      dolore distinctio.
+    </div>
+    <div id="div-products">
+      <h1>Products</h1>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure adipisci in
+      atque tempore! Eius ipsum voluptatem labore minima at dolores, quasi,
+      perspiciatis illo tenetur excepturi deserunt. A qui accusantium nisi cum!
+      Animi mollitia minima voluptates! Inventore doloribus fuga, ipsum possimus
+      accusantium doloremque delectus, obcaecati, eveniet repellendus nesciunt
+      dolore maiores sequi harum! At dolorem vero sed cum ab sint et, odit quod
+      iusto rerum possimus iste recusandae quisquam voluptates nesciunt? Facere
+      et a culpa, fugiat repellendus blanditiis repellat eius laboriosam
+      dignissimos distinctio! Repellat quae odit quidem necessitatibus
+      architecto officia dolore et culpa. Laborum id numquam tenetur est, quasi
+      debitis molestiae nobis explicabo officiis delectus animi vel
+      exercitationem aliquam maxime illo quo! Voluptatem ratione odit illo quam
+      labore, aperiam quidem totam dolorem ducimus commodi quo vel sequi non
+      possimus eaque fuga, quae numquam nemo iste eum laboriosam ullam! Fugit,
+      earum excepturi praesentium et totam officia dicta voluptates expedita
+      illum eius consectetur quisquam, explicabo necessitatibus neque,
+      repudiandae ullam at quos modi nisi? Doloribus nemo numquam, voluptate,
+      quaerat molestias quae pariatur fugit veniam id expedita itaque officia
+      velit quidem, quisquam error reiciendis totam aut. Ratione fugiat eveniet
+      quidem laboriosam libero tempore, praesentium officiis magni quaerat
+      quibusdam hic quod qui similique quam! Quos, unde soluta!
+    </div>
+    <div id="div-orders">
+      <h1>Orders</h1>
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet dolore
+      ab nemo! Cupiditate minima fugit similique accusantium tenetur nobis ex
+      tempore maxime, officia nihil nostrum voluptates atque ad eaque
+      perspiciatis? Earum est at veritatis voluptatibus culpa harum consectetur
+      velit numquam repellat explicabo distinctio sapiente nulla beatae et
+      accusantium blanditiis ducimus ad quos nihil accusamus excepturi ea odio,
+      illum repudiandae? Nihil beatae odio libero ipsam quaerat exercitationem
+      numquam adipisci fuga eaque? Dolorem veniam placeat neque corrupti labore
+      sit est, voluptatem, numquam consequuntur atque obcaecati commodi debitis
+      facere. Commodi voluptatum officia eligendi reprehenderit, voluptate ab
+      accusamus, at obcaecati necessitatibus culpa eius rem, exercitationem
+      minima. Nobis animi similique quae fugit quos porro blanditiis sit labore
+      inventore eum alias minus sunt accusantium ipsam impedit ut totam
+      corporis, unde error est iusto ad perferendis! Dolore beatae optio dolorem
+      tempore modi, vitae aliquam quidem at repudiandae consequatur quibusdam,
+      alias qui nam! Pariatur, ducimus. Repudiandae necessitatibus modi ducimus
+      natus, quis aspernatur ex corporis dolores quae dicta adipisci ratione
+      quam cum ad, obcaecati nisi delectus sit fuga! Deleniti quia, perspiciatis
+      veritatis a nesciunt quisquam perferendis velit cum. Odio quo provident
+      assumenda ab ratione. Exercitationem ipsam porro expedita voluptate rerum
+      possimus impedit amet dignissimos, explicabo in adipisci obcaecati
+      dolorem?
+    </div>
+  </div>
+  <!-- tab pages -->
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

@@ -94,3 +94,59 @@ html {
   width: 85%;
   margin: auto;
 }
+
+.vendor-intro,
+.vendor-outro {
+  padding: 6rem;
+}
+
+.vendor-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem;
+  text-align: center;
+}
+
+.detail-container {
+  padding: 1rem;
+  width: 80%;
+  border: 1px solid gray;
+  margin: 0.5rem;
+  background-color: whitesmoke;
+  border-radius: 1rem;
+}
+
+.detail-container h4,
+.detail-container p {
+  text-align: justify !important;
+}
+
+.how-it-works {
+  width: fit-content;
+  margin: auto;
+}
+
+.how-it-works h2,
+.vendor-detail-header {
+  padding: 1rem;
+}
+
+.vendor-dashboard ul {
+  padding-top: 0.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.active {
+  color: black !important;
+  background-color: white !important;
+}
+
+.bg-light {
+  background-color: white !important;
+}
+
+.tab-page {
+  padding: 1rem;
+}

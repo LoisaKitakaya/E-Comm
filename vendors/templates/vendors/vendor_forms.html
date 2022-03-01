@@ -32,7 +32,22 @@
       </form>
     </div>
     <div class="card-footer text-muted">
-      {{ form_footer }} Click <a href="#">here</a>.
+      {{ form_footer }} Click
+      <!-- if -->
+      {% if url == 'create' %}
+      <!-- if -->
+      <a href="{% url 'create_vendor_account' %}">here</a>.
+      <!-- elif -->
+      {% elif url == 'login' %}
+      <!-- elif -->
+      <a href="{% url 'login' %}">here</a>.
+      <!-- elif -->
+      {% elif url == 'dashboard' %}
+      <!-- elif -->
+      <a href="{% url 'dashboard' %}">here</a>.
+      <!-- endif -->
+      {% endif %}
+      <!-- endif -->
     </div>
   </div>
 </div>
