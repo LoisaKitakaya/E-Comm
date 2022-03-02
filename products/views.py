@@ -1,6 +1,6 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from .forms import CreateProduct
-from .models import VendorProfile
+from .models import VendorProfile, Category, Product
 
 # Create your views here.
 def products_home(request):
@@ -51,3 +51,19 @@ def create_product(request):
     }
 
     return render(request, 'products/products_forms.html', context)
+
+def categories(request, category_slug):
+
+    category_filter = get_object_or_404(Category, category_slug=category_slug)
+
+    return render(request, 'products/products_home.html', {'category_filter': category_filter})
+
+def products(request):
+
+    product_filter = Product.objects.all()
+
+    context = {
+        'all_products': product_filter,
+    }
+
+    return render(request, 'products/products_home.html', context)

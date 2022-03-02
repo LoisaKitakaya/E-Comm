@@ -44,15 +44,24 @@
   <!-- tab pages -->
   <div class="tab-page bg-light">
     <div id="div-home">
-      <h1 class="text-center">Home</h1>
-      <div class="card">
+      <div class="card text-center">
         <h5 class="card-header">{{ user_header }}</h5>
         <div class="card-body">
+          <a href="#" class="btn btn-primary container-fluid">Vendor support</a>
+          <br />
+          <br />
+          <a href="#" class="btn btn-primary container-fluid"
+            >Logistics support</a
+          >
+          <br />
+          <hr />
           <!-- if -->
           {% if current_user %}
           <!-- if -->
           <p class="card-text">Username: {{ current_user.username }}</p>
+          <hr />
           <p class="card-text">Email: {{ current_user.email }}</p>
+          <hr />
           <!-- endif -->
           {% endif %}
           <!-- endif -->
@@ -60,10 +69,16 @@
       </div>
     </div>
     <div id="div-profile">
-      <h1 class="text-center">Profile</h1>
-      <div class="card">
+      <div class="card text-center">
         <h5 class="card-header">{{ profile_header }}</h5>
         <div class="card-body">
+          <a
+            href="{% url 'update_vendor_profile' %}"
+            class="btn btn-success container-fluid"
+            >Edit profile</a
+          >
+          <br />
+          <hr />
           <!-- if -->
           {% if business_profile %}
           <!-- if -->
@@ -71,15 +86,21 @@
           {% for profile in business_profile %}
           <!-- for -->
           <p class="card-text">Profile owner: {{ profile.user }}</p>
+          <hr />
           <p class="card-text">Business name: {{ profile.business_name }}</p>
+          <hr />
           <p class="card-text">Profile Image:</p>
           <img src="{{ profile.profile_image.url }}" alt="" id="profile-img" />
           <br />
-          <br />
+          <hr />
           <p class="card-text">Business email: {{ profile.business_email }}</p>
+          <hr />
           <p class="card-text">Personal phone: {{ profile.personal_phone }}</p>
+          <hr />
           <p class="card-text">Business phone: {{ profile.business_phone }}</p>
+          <hr />
           <p class="card-text">Date joined: {{ profile.date_joined }}</p>
+          <hr />
           <!-- endfor -->
           {% endfor %}
           <!-- endfor -->
@@ -90,9 +111,8 @@
       </div>
     </div>
     <div id="div-products">
-      <h1 class="text-center">Products</h1>
       <div class="card">
-        <h5 class="card-header">{{ products_header }}</h5>
+        <h5 class="card-header text-center">{{ products_header }}</h5>
         <div class="card-body">
           <a
             href="{% url 'create_product' %}"
@@ -109,7 +129,11 @@
           <!-- for -->
           <p class="card-text">
             {{ forloop.counter }}. <a href="#"> {{ product.short_name }} </a>
+            <a href="#" class="text-danger float-end">Delete</a>
+            <span class="float-end text-light">...</span>
+            <a href="#" class="text-success float-end">Edit</a>
           </p>
+          <hr />
           <!-- endfor -->
           {% endfor %}
           <!-- endfor -->
@@ -120,7 +144,6 @@
       </div>
     </div>
     <div id="div-orders">
-      <h1 class="text-center">Orders</h1>
       <div class="card">
         <h5 class="card-header">{{ orders_header }}</h5>
         <div class="card-body">

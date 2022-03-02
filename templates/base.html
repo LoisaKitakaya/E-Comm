@@ -51,31 +51,7 @@
         <div class="d-flex">
           <div class="d-flex nav-item">
             <a href="{% url 'vendor_home' %}" class="nav-link">Vendor</a>
-            <div class="dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Categories
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <!-- for -->
-                {% for category in product_categories %}
-                <!-- for -->
-                <li>
-                  <a class="dropdown-item" href="#"
-                    >{{ category.category_title }}</a
-                  >
-                </li>
-                <!-- endfor -->
-                {% endfor %}
-                <!-- endfor -->
-              </ul>
-            </div>
+            <a href="{% url 'products' %}" class="nav-link">Products</a>
             <a href="#" class="nav-link">
               <i class="bi bi-bag-check-fill"></i>
             </a>
@@ -165,10 +141,10 @@
     <!-- footer -->
 
     <!-- credits -->
-    <p class="text-center text-light bg-dark" id="credits">
+    <p class="text-center text-dark bg-secondary" id="credits">
       Made with
       <i class="bi bi-hearts"></i> by
-      <a href="#" class="text-info">Freedom Loisa</a>
+      <a href="#" class="text-light">Freedom Loisa</a>
     </p>
     <!-- credits -->
 

@@ -179,6 +179,51 @@ def create_vendor_profile(request):
 
     return render(request, 'vendors/vendor_forms.html', context)
 
+@login_required(login_url='login')
+def update_vendor_profile(request):
+
+    logged_in_vendor = request.user
+
+    if request.method == 'POST':
+
+        form = CreateVendorProfile(request.POST, request.FILES)
+
+        if form.is_valid():
+
+            save_instance = form.save(commit=False)
+            
+            save_instance.user = logged_in_vendor
+
+            save_instance.save()
+
+            return redirect('dashboard')
+
+        else:
+
+            pass
+
+    else:
+
+        form = CreateVendorProfile()
+
+    subtitle = 'Profile'
+
+    form_title = 'Update Profile'
+
+    form_footer = "Satisfied with your profile as is? To go to dashboard..."
+
+    redirect_url = "dashboard"
+
+    context = {
+        'header': subtitle,
+        'form': form,
+        'form_title': form_title,
+        'form_footer': form_footer,
+        'url': redirect_url
+    }
+
+    return render(request, 'vendors/vendor_forms.html', context)
+
 def logout_vendor(request):
 
     dj_logout(request)
@@ -192,13 +237,9 @@ def dashboard(request):
 
     user = User.objects.get(username=logged_in_user)
 
-    print(user)
-
     user_header = 'Vendor account summary'
 
     profile = VendorProfile.objects.filter(user=logged_in_user.id)
-
-    print(profile)
 
     profile_header = 'Business profile summary'
 

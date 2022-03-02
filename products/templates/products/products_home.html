@@ -9,7 +9,7 @@
 <!-- title -->
 
 <!-- extend block -->
-{% block title %} Vendor {% endblock %}
+{% block title %} Products {% endblock %}
 <!-- extend block -->
 
 <!-- title -->
@@ -18,8 +18,38 @@
 
 <!-- extend block -->
 {% block body %}
-<div class="product-intro-container bg-light">
-  <h1>Working</h1>
+<div class="all-products-container bg-light">
+  <!-- if -->
+  {% if all_products %}
+  <!-- if -->
+  <!-- for -->
+  {% for product in all_products %}
+  <!-- for -->
+
+  <!-- products -->
+  <div class="card" style="width: 18rem" id="prod-card">
+    <img
+      src="{{ product.product_thumbnail.url }}"
+      class="card-img-top img-fluid"
+      alt="..."
+      id="prod-img"
+    />
+    <div class="card-body text-center">
+      <h5 class="card-title">{{ product.short_name }}</h5>
+      <p class="card-text text-muted">{{ product.product_category }}</p>
+      <p class="card-text">KSH {{ product.product_price }}</p>
+      <a href="#" class="btn btn-dark">View Product</a>
+    </div>
+    <div class="card-footer text-center">Vendor: {{ product.vendor }}</div>
+  </div>
+  <!-- products -->
+
+  <!-- endfor -->
+  {% endfor %}
+  <!-- endfor -->
+  <!-- endif -->
+  {% endif %}
+  <!-- endif -->
 </div>
 {% endblock %}
 <!-- extend block -->

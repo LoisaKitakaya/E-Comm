@@ -19,6 +19,19 @@
 <!-- extend block -->
 {% block body %}
 <div class="vendor-forms">
+  <!-- breadcrumb -->
+  <nav style="--bs-breadcrumb-divider: '>'" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'dashboard' %}">Dashboard</a>
+      </li>
+      <li class="breadcrumb-item text-dark" aria-current="page">
+        {{ form_title }}
+      </li>
+    </ol>
+  </nav>
+  <!-- breadcrumb -->
+
   <div class="card text-center">
     <div class="card-header">{{ form_title }} Form</div>
     <div class="card-body">
