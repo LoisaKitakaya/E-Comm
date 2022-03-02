@@ -19,7 +19,7 @@ class Product(models.Model):
     short_name = models.CharField(max_length=100, unique=True)
     short_name_slug = AutoSlugField(populate_from='short_name')
     full_name = models.CharField(max_length=250, unique=True)
-    product_category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     product_thumbnail = models.ImageField(upload_to='product_thumbnail')
     product_price = models.IntegerField(default=0)
     product_description = RichTextUploadingField()

@@ -33,11 +33,6 @@
     <li class="nav-item" id="dash-orders">
       <a class="nav-link" href="#" id="link-orders">Orders</a>
     </li>
-    <li class="nav-item">
-      <a href="{% url 'logout_vendor' %}" class="btn-outline-danger btn"
-        >logout</a
-      >
-    </li>
   </ul>
   <!-- tab navigation -->
 
@@ -72,11 +67,17 @@
       <div class="card text-center">
         <h5 class="card-header">{{ profile_header }}</h5>
         <div class="card-body">
+          {% if business_profile %}
+          <!--  -->
+          {% for profile in business_profile %}
           <a
-            href="{% url 'update_vendor_profile' %}"
+            href="{% url 'update_vendor_profile' profile.user.id %}"
             class="btn btn-success container-fluid"
             >Edit profile</a
           >
+          {% endfor %}
+          <!--  -->
+          {% endif %}
           <br />
           <hr />
           <!-- if -->
@@ -129,14 +130,30 @@
           <!-- for -->
           <p class="card-text">
             {{ forloop.counter }}. <a href="#"> {{ product.short_name }} </a>
-            <a href="#" class="text-danger float-end">Delete</a>
+            <a
+              href="{% url 'delete_product' product.id %}"
+              class="text-danger float-end"
+              >Delete</a
+            >
             <span class="float-end text-light">...</span>
-            <a href="#" class="text-success float-end">Edit</a>
+            <a
+              href="{% url 'edit_product' product.short_name_slug %}"
+              class="text-success float-end"
+              >Edit</a
+            >
           </p>
           <hr />
           <!-- endfor -->
           {% endfor %}
           <!-- endfor -->
+          <!-- else -->
+          {% else %}
+          <!-- else -->
+          <p class="card-text text-center">
+            No products yet. Add your products to start selling.
+            <strong>E-Comm.</strong>
+            customers are waiting.
+          </p>
           <!-- endif -->
           {% endif %}
           <!-- endif -->
@@ -151,6 +168,15 @@
         </div>
       </div>
     </div>
+    <!-- logout -->
+    <div class="logout">
+      <a
+        href="{% url 'logout_vendor' %}"
+        class="btn-outline-danger btn container-fluid"
+        >logout</a
+      >
+    </div>
+    <!-- logout -->
   </div>
   <!-- tab pages -->
 </div>

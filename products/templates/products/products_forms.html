@@ -25,7 +25,9 @@
       <li class="breadcrumb-item">
         <a href="{% url 'dashboard' %}">Dashboard</a>
       </li>
-      <li class="breadcrumb-item text-dark" aria-current="page">Add product</li>
+      <li class="breadcrumb-item text-dark" aria-current="page">
+        {{ form_title }}
+      </li>
     </ol>
   </nav>
   <!-- breadcrumb -->

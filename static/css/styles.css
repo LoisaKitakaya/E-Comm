@@ -64,10 +64,6 @@ html {
   padding: 1rem 0;
 }
 
-#credits {
-  padding: 0.5rem 0;
-}
-
 #site-logo {
   width: 300px;
 }
@@ -161,7 +157,7 @@ html {
   flex-direction: row;
   justify-content: space-around;
   padding: 1rem;
-  /* align-items: center; */
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -173,4 +169,15 @@ html {
 
 #prod-card {
   margin: 1rem;
+}
+
+.filter-container {
+  background-color: whitesmoke;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.logout {
+  padding-top: 1rem;
 }

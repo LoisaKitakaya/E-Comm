@@ -4,8 +4,8 @@ from .models import Category, Product
 # Register your models here.
 class AdminProductView(admin.ModelAdmin):
 
-    list_display = ('vendor', 'short_name', 'product_category', 'product_price', 'date_posted')
-    list_filter = ('product_category', 'product_price')
+    list_display = ('vendor', 'short_name', 'category', 'product_price', 'date_posted')
+    list_filter = ('category', 'product_price')
 
 class AdminCategoryView(admin.ModelAdmin):
 

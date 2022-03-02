@@ -46,7 +46,7 @@
     <nav class="navbar navbar-dark bg-dark" id="nav">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
-          <h2>E-Comm.</h2>
+          <h2><strong>E-Comm.</strong></h2>
         </a>
         <div class="d-flex">
           <div class="d-flex nav-item">
@@ -56,7 +56,7 @@
               <i class="bi bi-bag-check-fill"></i>
             </a>
           </div>
-          <form class="d-flex">
+          <form action="{% url 'search' %}" method="get" class="d-flex">
             <div class="input-group md-3">
               <input
                 class="form-control"
@@ -137,16 +137,14 @@
           </div>
         </div>
       </div>
+      <hr />
+      <p class="text-center text-light">
+        Made with
+        <i class="bi bi-hearts"></i> by
+        <a href="#" class="text-primary">Freedom Loisa</a>
+      </p>
     </div>
     <!-- footer -->
-
-    <!-- credits -->
-    <p class="text-center text-dark bg-secondary" id="credits">
-      Made with
-      <i class="bi bi-hearts"></i> by
-      <a href="#" class="text-light">Freedom Loisa</a>
-    </p>
-    <!-- credits -->
 
     <!-- messages -->
     {% include 'messages.html' %}

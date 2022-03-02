@@ -18,6 +18,7 @@
 
 <!-- extend block -->
 {% block body %}
+<h2 class="text-center">E-Comm. Store</h2>
 <div class="all-products-container bg-light">
   <!-- if -->
   {% if all_products %}
@@ -36,7 +37,7 @@
     />
     <div class="card-body text-center">
       <h5 class="card-title">{{ product.short_name }}</h5>
-      <p class="card-text text-muted">{{ product.product_category }}</p>
+      <p class="card-text text-muted">{{ product.category }}</p>
       <p class="card-text">KSH {{ product.product_price }}</p>
       <a href="#" class="btn btn-dark">View Product</a>
     </div>

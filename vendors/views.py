@@ -180,13 +180,15 @@ def create_vendor_profile(request):
     return render(request, 'vendors/vendor_forms.html', context)
 
 @login_required(login_url='login')
-def update_vendor_profile(request):
+def update_vendor_profile(request, id):
 
     logged_in_vendor = request.user
 
+    edit_instance = VendorProfile.objects.get(pk=id)
+
     if request.method == 'POST':
 
-        form = CreateVendorProfile(request.POST, request.FILES)
+        form = CreateVendorProfile(request.POST, request.FILES, instance=edit_instance)
 
         if form.is_valid():
 
@@ -219,7 +221,8 @@ def update_vendor_profile(request):
         'form': form,
         'form_title': form_title,
         'form_footer': form_footer,
-        'url': redirect_url
+        'url': redirect_url,
+        'this_user': logged_in_vendor,
     }
 
     return render(request, 'vendors/vendor_forms.html', context)
