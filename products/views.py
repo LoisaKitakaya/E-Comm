@@ -3,12 +3,6 @@ from .forms import CreateProduct
 from .models import VendorProfile, Category, Product
 
 # Create your views here.
-def products_home(request):
-
-    context = {}
-
-    return render(request, 'products/products_home.html', context)
-
 def create_product(request):
 
     logged_in_user = request.user
