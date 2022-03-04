@@ -92,7 +92,6 @@ html {
   margin: auto;
 }
 
-.vendor-intro,
 .vendor-outro {
   padding: 6rem;
 }
@@ -180,4 +179,13 @@ html {
 
 .logout {
   padding-top: 1rem;
+}
+
+.intro-box {
+  padding: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.prod-404 {
+  text-align: justify;
 }

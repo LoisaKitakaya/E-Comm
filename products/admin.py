@@ -4,12 +4,13 @@ from .models import Category, Product
 # Register your models here.
 class AdminProductView(admin.ModelAdmin):
 
-    list_display = ('vendor', 'short_name', 'category', 'product_price', 'date_posted')
-    list_filter = ('category', 'product_price')
+    list_display = ['vendor', 'short_name', 'category', 'product_price', 'date_posted']
+    list_filter = ['category', 'vendor']
+    search_fields = ['vendor', 'short_name', 'category']
 
 class AdminCategoryView(admin.ModelAdmin):
 
-    prepopulated_fields = {'category_slug': ('category_title',)}
+    list_display = ['category_title']
 
 admin.site.register(Category, AdminCategoryView)
 

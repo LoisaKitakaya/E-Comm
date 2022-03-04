@@ -19,14 +19,9 @@
 <!-- extend block -->
 {% block body %}
 <div class="vendor-intro-container bg-light">
-  <!-- card -->
-  <div class="card bg-light text-dark">
-    <img
-      class="card-img img-fluid"
-      src="{% static 'img/vendor_image_1.jpg' %}"
-      alt=""
-    />
-    <div class="card-img-overlay">
+  <!-- intro -->
+  <div class="vendor-intro bg-secondary">
+    <div class="intro-box text-center text-light">
       <br />
       <h3 class="card-title">Become a vendor on <strong>E-Comm.</strong></h3>
       <br />
@@ -37,8 +32,26 @@
         <strong>'$$$$'</strong> on <strong>E-Comm.</strong>
       </p>
     </div>
+    <hr />
+    <div class="button-box text-light text-center">
+      <a href="{% url 'create_vendor_account' %}" class="btn btn-primary"
+        >Create vendor account</a
+      >
+      <br />
+      <br />
+      Or
+      <br />
+      <br />
+      <a href="{% url 'dashboard' %}" class="btn btn-success"
+        >Go to dashboard</a
+      >
+      <br />
+      <br />
+      If already a vendor
+    </div>
+    <br />
   </div>
-  <!-- card -->
+  <!-- intro -->
   <!-- how it works -->
   <div class="how-it-works">
     <h2 class="text-center">How it works</h2>
@@ -49,20 +62,6 @@
     />
   </div>
   <!-- how it works -->
-  <!-- intro -->
-  <div class="vendor-intro bg-secondary">
-    <div class="button-box text-center">
-      <a href="{% url 'create_vendor_account' %}" class="btn btn-primary"
-        >Create vendor account</a
-      >
-      <br />
-      <br />
-      <a href="{% url 'dashboard' %}" class="btn btn-success"
-        >Go to dashboard</a
-      >
-    </div>
-  </div>
-  <!-- intro -->
   <!-- details -->
   <h2 class="vendor-detail-header text-center">
     Why you should become a vendor

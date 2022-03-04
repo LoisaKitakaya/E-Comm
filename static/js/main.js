@@ -5,7 +5,6 @@ $(document).ready(function () {
 
   $(window).scroll(function () {
     var scroll = $(document).scrollTop();
-    console.log(scroll);
 
     if (scroll > 100) {
       backTop.fadeIn();
