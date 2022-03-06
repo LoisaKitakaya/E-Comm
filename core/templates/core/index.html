@@ -1,0 +1,288 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Home {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<div class="home-container bg-light">
+  <div class="home">
+    <hr />
+    <!--  -->
+    <div class="slider">
+      <div
+        id="carouselItemIndicators"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      >
+        <div class="carousel-indicators">
+          <button
+            type="button"
+            data-bs-target="#carouselItemIndicators"
+            data-bs-slide-to="0"
+            class="active"
+            aria-current="true"
+            aria-label="Slide 1"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselItemIndicators"
+            data-bs-slide-to="1"
+            aria-label="Slide 2"
+          ></button>
+          <button
+            type="button"
+            data-bs-target="#carouselItemIndicators"
+            data-bs-slide-to="2"
+            aria-label="Slide 3"
+          ></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="4000">
+            <img
+              src="{% static 'img/banner_1.jpg' %}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="4000">
+            <img
+              src="{% static 'img/banner_2.jpg' %}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+          <div class="carousel-item" data-bs-interval="4000">
+            <img
+              src="{% static 'img/banner_3.jpg' %}"
+              class="d-block w-100"
+              alt="..."
+            />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#carouselItemIndicators"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#carouselItemIndicators"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <!--  -->
+    <hr />
+    <!--  -->
+    <div class="prod-sections">
+      <!-- if -->
+      {% if first_section_objects %}
+      <!-- if -->
+      <!-- for -->
+      {% for product in first_section_objects %}
+      <!-- for -->
+
+      <!-- products -->
+      <div class="card" style="width: 20rem" id="prod-card">
+        <img
+          src="{{ product.product_thumbnail.url }}"
+          class="card-img-top img-fluid"
+          alt="..."
+          id="prod-img"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ product.short_name }}</h5>
+          <p class="card-text text-muted">{{ product.category }}</p>
+          <p class="card-text">KSH {{ product.product_price }}</p>
+          <a
+            href="{% url 'product_details' product.short_name_slug %}"
+            class="btn btn-outline-dark"
+            >View Product</a
+          >
+        </div>
+        <div class="card-footer text-center">Vendor: {{ product.vendor }}</div>
+      </div>
+      <!-- products -->
+
+      <!-- endfor -->
+      {% endfor %}
+      <!-- endfor -->
+
+      <!-- else -->
+      {% else %}
+      <!-- else -->
+
+      <h3 class="prod-404">
+        <hr />
+        OOPS! Couldn't find E-Comm products. Something is wrong on our end. We
+        are sorry for the inconvinience and are doing everything to re-establish
+        the E-Comm. shopping experience. Check back in a few. <br />
+        <hr />
+      </h3>
+
+      <h3 class="prod-404">E-Comm. Team.</h3>
+
+      <!-- endif -->
+      {% endif %}
+      <!-- endif -->
+    </div>
+    <!--  -->
+    <hr />
+    <!--  -->
+    <div class="marketing-container">
+      <a href="#">
+        <img src="{% static 'img/small_banner_1.jpg' %}" alt="" />
+      </a>
+      <a href="#">
+        <img src="{% static 'img/small_banner_2.jpg' %}" alt="" />
+      </a>
+      <a href="#">
+        <img src="{% static 'img/small_banner_3.jpg' %}" alt="" />
+      </a>
+    </div>
+    <!--  -->
+    <hr />
+    <!--  -->
+    <div class="prod-sections">
+      <!-- if -->
+      {% if second_section_objects %}
+      <!-- if -->
+      <!-- for -->
+      {% for product in second_section_objects %}
+      <!-- for -->
+
+      <!-- products -->
+      <div class="card" style="width: 20rem" id="prod-card">
+        <img
+          src="{{ product.product_thumbnail.url }}"
+          class="card-img-top img-fluid"
+          alt="..."
+          id="prod-img"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ product.short_name }}</h5>
+          <p class="card-text text-muted">{{ product.category }}</p>
+          <p class="card-text">KSH {{ product.product_price }}</p>
+          <a
+            href="{% url 'product_details' product.short_name_slug %}"
+            class="btn btn-outline-dark"
+            >View Product</a
+          >
+        </div>
+        <div class="card-footer text-center">Vendor: {{ product.vendor }}</div>
+      </div>
+      <!-- products -->
+
+      <!-- endfor -->
+      {% endfor %}
+      <!-- endfor -->
+
+      <!-- else -->
+      {% else %}
+      <!-- else -->
+
+      <h3 class="prod-404">
+        <hr />
+        OOPS! Couldn't find E-Comm products. Something is wrong on our end. We
+        are sorry for the inconvinience and are doing everything to re-establish
+        the E-Comm. shopping experience. Check back in a few. <br />
+        <hr />
+      </h3>
+
+      <h3 class="prod-404">E-Comm. Team.</h3>
+
+      <!-- endif -->
+      {% endif %}
+      <!-- endif -->
+    </div>
+    <!--  -->
+    <hr />
+    <!--  -->
+    <div class="prod-banner">
+      <img class="img-fluid" src="{% static 'img/banner_4.jpg' %}" alt="" />
+    </div>
+    <!--  -->
+    <hr />
+    <!--  -->
+    <div class="prod-sections">
+      <!-- if -->
+      {% if third_section_objects %}
+      <!-- if -->
+      <!-- for -->
+      {% for product in third_section_objects %}
+      <!-- for -->
+
+      <!-- products -->
+      <div class="card" style="width: 20rem" id="prod-card">
+        <img
+          src="{{ product.product_thumbnail.url }}"
+          class="card-img-top img-fluid"
+          alt="..."
+          id="prod-img"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ product.short_name }}</h5>
+          <p class="card-text text-muted">{{ product.category }}</p>
+          <p class="card-text">KSH {{ product.product_price }}</p>
+          <a
+            href="{% url 'product_details' product.short_name_slug %}"
+            class="btn btn-outline-dark"
+            >View Product</a
+          >
+        </div>
+        <div class="card-footer text-center">Vendor: {{ product.vendor }}</div>
+      </div>
+      <!-- products -->
+
+      <!-- endfor -->
+      {% endfor %}
+      <!-- endfor -->
+
+      <!-- else -->
+      {% else %}
+      <!-- else -->
+
+      <h3 class="prod-404">
+        <hr />
+        OOPS! Couldn't find E-Comm products. Something is wrong on our end. We
+        are sorry for the inconvinience and are doing everything to re-establish
+        the E-Comm. shopping experience. Check back in a few. <br />
+        <hr />
+      </h3>
+
+      <h3 class="prod-404">E-Comm. Team.</h3>
+
+      <!-- endif -->
+      {% endif %}
+      <!-- endif -->
+    </div>
+    <!--  -->
+    <hr />
+  </div>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

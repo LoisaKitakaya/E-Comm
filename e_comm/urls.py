@@ -23,6 +23,7 @@ from ckeditor_uploader import views as ckeditor_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('core.urls')),
     path('vendor/', include('vendors.urls')),
     path('products/', include('products.urls')),
     path('ckeditor/upload/', login_required(ckeditor_views.upload), name='ckeditor_upload'),

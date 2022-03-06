@@ -45,14 +45,62 @@
     <!-- navigation -->
     <nav class="navbar navbar-dark bg-dark" id="nav">
       <div class="container-fluid">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{% url 'home' %}">
           <h2><strong>E-Comm.</strong></h2>
         </a>
         <div class="d-flex">
           <div class="d-flex nav-item">
-            <a href="{% url 'vendor_home' %}" class="nav-link">Vendor</a>
             <a href="{% url 'products' %}" class="nav-link">Products</a>
-            <a href="#" class="nav-link">
+            <div class="dropdown">
+              <a
+                class="dropdown-toggle nav-link"
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                More
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li>
+                  <a href="{% url 'home' %}" class="dropdown-item">
+                    <i class="bi bi-house-door"></i> Home
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'about' %}" class="dropdown-item">
+                    <i class="bi bi-question-circle"></i> About
+                  </a>
+                </li>
+                <li>
+                  <a href="{% url 'contacts' %}" class="dropdown-item">
+                    <i class="bi bi-telephone"></i> Contacts
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a href="{% url 'vendor_home' %}" class="dropdown-item">
+                    <i class="bi bi-coin"></i> Vendor
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    href="https://github.com/LoisaKitakaya/E-Comm"
+                    class="dropdown-item"
+                  >
+                    <i class="bi bi-github"></i> GitHub
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <a
+              href="#"
+              class="nav-link"
+              data-bs-toggle="tooltip"
+              data-bs-placement="top"
+              title="cart"
+            >
               <i class="bi bi-bag-check-fill"></i>
             </a>
           </div>
@@ -87,17 +135,17 @@
     <div class="footer text-light bg-dark">
       <div class="container">
         <div class="row">
-          <div class="col-md-3">
-            <h2 class="">About E-Comm.</h2>
+          <div class="col-md-3 text-center">
+            <h2>About E-Comm.</h2>
             <hr />
-            <a href="#" class="nav-link">About us</a>
-            <a href="#" class="nav-link">E-Comm. Careers</a>
-            <a href="#" class="nav-link">E-Comm. Express</a>
+            <a href="{% url 'about' %}" class="nav-link">About us</a>
             <a href="#" class="nav-link">Terms and Conditions</a>
             <a href="#" class="nav-link">Privacy & Cookie Notice</a>
+            <a href="#" class="nav-link">E-Comm. Careers</a>
+            <a href="#" class="nav-link">E-Comm. Express</a>
             <a href="#" class="nav-link">E-Comm. Black Friday</a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 text-center">
             <h2>Need help?</h2>
             <hr />
             <a href="#" class="nav-link">Help Center</a>
@@ -109,7 +157,7 @@
             <a href="#" class="nav-link">E-Comm. Logistics Services</a>
             <a href="#" class="nav-link">Report a Product</a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 text-center">
             <h2>Make money</h2>
             <hr />
             <a href="#" class="nav-link">Sell on E-Comm.</a>
@@ -119,7 +167,7 @@
             <a href="#" class="nav-link">E-Comm Foundation</a>
             <a href="#" class="nav-link">Order & Pick Up Point Application</a>
           </div>
-          <div class="col-md-3">
+          <div class="col-md-3 text-center">
             <h2>Contacts</h2>
             <hr />
             <p class="nav-link">Email: e-comm@info.com</p>
@@ -138,11 +186,6 @@
         </div>
       </div>
       <hr />
-      <p class="text-center text-light">
-        Made with
-        <i class="bi bi-hearts"></i> by
-        <a href="#" class="text-primary">Freedom Loisa</a>
-      </p>
     </div>
     <!-- footer -->
 

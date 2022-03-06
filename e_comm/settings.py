@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'vendors',
     'products',
+    'core',
     'bootstrap5',
     'ckeditor',
     'ckeditor_uploader',

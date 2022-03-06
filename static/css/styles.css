@@ -151,13 +151,17 @@ html {
   width: 250px;
 }
 
-.all-products-container {
+.all-products-container,
+.prod-sections {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding: 1rem;
   align-items: center;
   flex-wrap: wrap;
+}
+
+.all-products-container {
+  padding: 1rem;
 }
 
 #prod-img {
@@ -207,6 +211,34 @@ html {
 }
 
 .add-to-cart-form {
-  width: 50%;
+  width: 35%;
   margin: auto;
+}
+
+.home-container,
+.about-container,
+.contacts-container {
+  padding: 1rem;
+}
+
+.marketing-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.marketing-container a {
+  text-decoration: none;
+}
+
+.marketing-container img {
+  height: 350px;
+  width: 350px;
+  border: 1px solid gray;
+  border-radius: 0.275rem;
+}
+
+.prod-banner img {
+  max-height: 500px;
 }
