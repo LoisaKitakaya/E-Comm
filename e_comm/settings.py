@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'vendors',
     'products',
     'core',
+    'cart',
     'bootstrap5',
     'ckeditor',
     'ckeditor_uploader',
@@ -73,7 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'products.context_processors.product_categories',
+                'cart.context_processors.cart',
             ],
         },
     },
@@ -149,6 +150,8 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# CK-Editor configuration
+
 CKEDITOR_UPLOAD_PATH = 'product_description/'
 
 CKEDITOR_IMAGE_BACKEND = 'pillow'
@@ -160,3 +163,8 @@ CKEDITOR_CONFIGS = {
         'width': 790,
     },
 }
+
+# Cart session settings
+SESSION_COOKIE_AGE = 86400
+
+CART_SESSION_ID = 'cart'

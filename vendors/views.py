@@ -6,6 +6,7 @@ from products.models import Product
 from .models import VendorProfile
 from .forms import CreateNewUser, CreateVendorProfile
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 # Create your views here.
 def vendor_home(request):
@@ -23,6 +24,8 @@ def create_vendor_account(request):
         if form.is_valid():
 
             form.save()
+
+            messages.success(request, 'Account created successfully.')
 
             return redirect('login_vendor')
 
@@ -106,6 +109,8 @@ def login(request):
 
             dj_login(request, user)
 
+            messages.success(request, 'Logged in successfully.')
+
             return redirect('dashboard')
 
         else:
@@ -150,6 +155,8 @@ def create_vendor_profile(request):
             save_instance.user = logged_in_vendor
 
             save_instance.save()
+
+            messages.success(request, 'Vendor profile created successfully.')
 
             return redirect('dashboard')
 
@@ -198,6 +205,8 @@ def update_vendor_profile(request, id):
 
             save_instance.save()
 
+            messages.info(request, 'Vendor profile updated successfully.')
+
             return redirect('dashboard')
 
         else:
@@ -230,6 +239,8 @@ def update_vendor_profile(request, id):
 def logout_vendor(request):
 
     dj_logout(request)
+
+    messages.error(request, 'Logged out of vendor account.')
 
     return redirect('vendor_home')
 

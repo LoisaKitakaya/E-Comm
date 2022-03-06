@@ -38,6 +38,10 @@
       type="text/javascript"
       src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"
     ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
     <title>E-Comm. | {% block title %} Home {% endblock %}</title>
   </head>
@@ -95,13 +99,24 @@
               </ul>
             </div>
             <a
-              href="#"
+              href="{% url 'cart' %}"
               class="nav-link"
               data-bs-toggle="tooltip"
               data-bs-placement="top"
               title="cart"
             >
               <i class="bi bi-bag-check-fill"></i>
+              <!-- if -->
+              {% if cart %}
+              <!-- if -->
+              <span class="badge bg-secondary">{{ cart|length }}</span>
+              <!-- else -->
+              {% else %}
+              <!-- else -->
+              <span class="badge bg-secondary">0</span>
+              <!-- endif -->
+              {% endif %}
+              <!-- endif -->
             </a>
           </div>
           <form action="{% url 'search' %}" method="get" class="d-flex">

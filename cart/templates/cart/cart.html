@@ -1,0 +1,171 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- load bootstrap -->
+{% load bootstrap5 %}
+<!-- load bootstrap -->
+
+<!-- format localization -->
+{% load humanize %}
+<!-- format localization -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Cart {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<h2 class="text-center">Cart</h2>
+<div class="cart-details-container bg-light">
+  <div class="cart-details">
+    <!-- if -->
+    {% if cart %}
+    <!-- if -->
+
+    <table class="table table-striped">
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">Thumbnail</th>
+          <th scope="col">Product</th>
+          <th scope="col">Quantity</th>
+          <th class="col">Total</th>
+          <th class="col">Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- for -->
+        {% for item in cart %}
+        <!-- for -->
+        <tr class="text-center">
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>
+            <img
+              src="{{ item.product.product_thumbnail.url }}"
+              style="max-width: 50px; max-height: 50px"
+              alt=""
+            />
+          </td>
+          <td>
+            <a href="{% url 'product_details' item.product.short_name_slug %}"
+              >{{ item.product.short_name }}</a
+            >
+          </td>
+          <td class="qty-control">
+            <a
+              href="?change_quantity={{ item.id }}&quantity=-1"
+              class="text-dark"
+            >
+              <i class="bi bi-dash-square-fill"></i>
+            </a>
+            {{ item.quantity }}
+            <a
+              href="?change_quantity={{ item.id }}&quantity=1"
+              class="text-dark"
+            >
+              <i class="bi bi-plus-square-fill"></i>
+            </a>
+          </td>
+          <td>{{ item.total_price|intcomma }}</td>
+          <td class="qty-control">
+            <a href="?delete={{ item.id }}" class="text-danger">
+              <i class="bi bi-trash-fill"></i>
+            </a>
+          </td>
+        </tr>
+        <!-- endfor -->
+        {% endfor %}
+        <!-- endfor -->
+      </tbody>
+      <tfoot>
+        <tr class="text-center">
+          <th scope="row"></th>
+          <td></td>
+          <td>
+            <strong>Total Cost</strong>
+          </td>
+          <td>
+            <strong>{{ cart|length }}</strong>
+          </td>
+          <td>
+            <strong>KSH {{ cart.get_total_cost|intcomma }}</strong>
+          </td>
+          <td></td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <!-- else -->
+    {% else %}
+    <!-- else -->
+
+    <!-- if -->
+    {% if error_message %}
+    <!-- if -->
+    <h3 class="prod-404">
+      <hr />
+      {{ error_message }} <br />
+      <hr />
+    </h3>
+    <!-- else -->
+    {% else %}
+    <!-- else -->
+    <h3 class="prod-404">
+      <hr />
+      Cart is empty. <br />
+      <hr />
+    </h3>
+    <!-- endif -->
+    {% endif %}
+    <!-- endif -->
+
+    <!-- endif -->
+    {% endif %}
+    <!-- endif -->
+
+    <hr />
+
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt beatae
+      asperiores nemo natus numquam delectus commodi ut aliquam, atque, dicta
+      quaerat, accusantium illum iure placeat molestias odit. A beatae, optio
+      ipsum assumenda mollitia maiores quaerat iure sit dignissimos quibusdam
+      reprehenderit tempore laborum quis reiciendis esse hic pariatur repellat
+      libero delectus! Atque est quae ea ipsa ab reiciendis doloremque, eaque
+      nulla! Repudiandae sapiente, itaque, eum rem praesentium mollitia
+      accusantium, eius deserunt quis nemo magnam consectetur quaerat optio
+      voluptatem corrupti doloremque atque quos accusamus qui deleniti ipsum
+      animi assumenda culpa. Explicabo magnam adipisci qui, recusandae sint
+      reprehenderit! Qui iste error quasi maxime tenetur quis accusantium aut
+      laudantium distinctio atque consequatur assumenda in quia ex doloribus
+      porro explicabo labore et eligendi soluta, consequuntur, corporis ratione
+      magnam? Minus eaque voluptate, quae quos sapiente, nesciunt quibusdam
+      aliquam eum ullam tempora itaque officiis earum temporibus animi fugit!
+      Repudiandae placeat libero ipsa eius ut inventore unde voluptatum
+      exercitationem quod laborum aspernatur eligendi quis, facilis mollitia
+      ducimus, quibusdam eos cupiditate. Maiores, incidunt hic. Magni labore
+      nesciunt molestiae debitis, expedita optio incidunt consequuntur sed sequi
+      non laboriosam eius veniam, praesentium provident possimus consequatur id.
+      Accusamus esse minus fugit, dolores suscipit soluta saepe error quasi
+      dolorum magnam perferendis, alias deleniti, et aliquid exercitationem eos
+      tenetur maxime commodi quam dignissimos provident optio voluptates iste.
+      Voluptatum in repellendus molestias porro distinctio tempore hic
+      reiciendis aperiam ratione aut magni eius, facere eum illo?
+    </p>
+  </div>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

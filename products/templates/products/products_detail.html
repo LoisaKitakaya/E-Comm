@@ -6,6 +6,10 @@
 {% load static %}
 <!-- load static -->
 
+<!-- load bootstrap -->
+{% load bootstrap5 %}
+<!-- load bootstrap -->
+
 <!-- format localization -->
 {% load humanize %}
 <!-- format localization -->
@@ -54,15 +58,12 @@
         <hr />
         <br />
         <div class="text-center">
-          <form action="#" class="add-to-cart-form">
-            <div class="mb-3">
-              <input
-                type="number"
-                name="quantity"
-                id="quantity"
-                class="form-control"
-              />
-            </div>
+          <form method="post" class="add-to-cart-form">
+            <!-- csrf & form -->
+            {% csrf_token %}
+            <!-- csrf & form -->
+            {% bootstrap_form form %}
+            <!-- csrf & form -->
             <button type="submit" class="btn btn-outline-dark container-fluid">
               <i class="bi bi-bag-plus-fill"></i> Add to cart
               <i class="bi bi-bag-plus-fill"></i>

@@ -195,7 +195,8 @@ html {
   text-align: justify;
 }
 
-.product-details {
+.product-details,
+.cart-details {
   padding: 1rem;
 }
 
@@ -259,4 +260,22 @@ html {
 .map iframe {
   max-width: 1000px;
   max-height: 1000px;
+}
+
+.app-message {
+  position: fixed !important;
+  top: 5rem !important;
+  right: 1rem !important;
+  max-width: 50% !important;
+  z-index: 100 !important;
+  animation: fadeInRight;
+  animation-duration: 300ms;
+}
+
+.badge {
+  padding: 0.15em auto !important;
+}
+
+.qty-control a {
+  text-decoration: none;
 }

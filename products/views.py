@@ -1,8 +1,10 @@
 from django.shortcuts import redirect, render
-from .forms import CreateProduct
+from .forms import CreateProduct, AddToCart
 from .models import VendorProfile, Product
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
+from cart.cart import Cart
+from django.contrib import messages
 
 # Create your views here.
 @login_required(login_url='login')
@@ -23,6 +25,8 @@ def create_product(request):
             save_instance.vendor = profile
 
             save_instance.save()
+
+            messages.success(request, 'Product added successfully.')
 
             return redirect('dashboard')
 
@@ -70,6 +74,8 @@ def edit_product(request, short_name_slug):
 
             save_instance.save()
 
+            messages.info(request, 'Product edited successfully.')
+
             return redirect('dashboard')
 
         else:
@@ -102,6 +108,8 @@ def delete_product(request, id):
 
     to_delete.delete()
 
+    messages.error(request, 'Product has been deleted.')
+
     return redirect('dashboard')
 
 def products(request):
@@ -121,8 +129,29 @@ def product_details(request, short_name_slug):
 
     prod_item = Product.objects.get(short_name_slug=short_name_slug)
 
+    cart = Cart(request)
+
+    if request.method == 'POST':
+
+        form = AddToCart(request.POST)
+
+        if form.is_valid():
+
+            quantity = form.cleaned_data['quantity']
+
+            print(quantity)
+
+            cart.add(product_id=prod_item.id, quantity=quantity, update_quantity=False)
+
+            messages.success(request, 'Product added to cart.')
+
+    else:
+
+        form = AddToCart()
+
     context = {
         'product_details': prod_item,
+        'form': form,
     }
 
     return render(request, 'products/products_detail.html', context)

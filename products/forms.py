@@ -10,3 +10,7 @@ class CreateProduct(forms.ModelForm):
 
         fields = '__all__'
         exclude = ['short_name_slug', 'vendor']
+
+class AddToCart(forms.Form):
+
+    quantity = forms.IntegerField(label='Quantity')
