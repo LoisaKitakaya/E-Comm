@@ -49,16 +49,6 @@ def create_product(request):
 
     return render(request, 'products/products_forms.html', context)
 
-def products(request):
-
-    product_filter = Product.objects.all()
-
-    context = {
-        'all_products': product_filter,
-    }
-
-    return render(request, 'products/products_home.html', context)
-
 @login_required(login_url='login')
 def edit_product(request, short_name_slug):
 
@@ -118,8 +108,11 @@ def products(request):
 
     product_filter = Product.objects.all()
 
+    error_message = "OOPS! Couldn't find E-Comm the product. Something is wrong on our end. We are sorry for the inconvinience and are doing everything to re-establish the E-Comm. shopping experience. Check back in a few."
+
     context = {
         'all_products': product_filter,
+        'error_message': error_message,
     }
 
     return render(request, 'products/products_home.html', context)
@@ -149,9 +142,12 @@ def search(request):
     else:
 
         filter_results = []
+
+    error_message = "What you are looking for doesn't exist in the E-Comm. Store. Try searching by category, product name, or vendor name."
         
     context = {
         'all_products': filter_results,
+        'error_message': error_message,
     }
 
     return render(request, 'products/products_home.html', context)

@@ -5,7 +5,6 @@ $(document).ready(function () {
 
   $(window).scroll(function () {
     var scroll = $(document).scrollTop();
-    console.log(scroll);
 
     if (scroll > 100) {
       backTop.fadeIn();
@@ -79,5 +78,14 @@ $(document).ready(function () {
     divProfile.hide();
     divProducts.hide();
     divOrders.fadeIn();
+  });
+
+  var prodDescription = $("#prod-description");
+  var toggleDescription = $(".toggle-description");
+
+  prodDescription.hide();
+
+  toggleDescription.click(function () {
+    prodDescription.slideToggle();
   });
 });

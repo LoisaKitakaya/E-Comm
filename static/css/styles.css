@@ -87,7 +87,8 @@ html {
 }
 
 .vendor-forms,
-.product-forms {
+.product-forms,
+.contact-forms {
   width: 85%;
   margin: auto;
 }
@@ -217,7 +218,9 @@ html {
 
 .home-container,
 .about-container,
-.contacts-container {
+.contacts-container,
+.about,
+.contact {
   padding: 1rem;
 }
 
@@ -241,4 +244,19 @@ html {
 
 .prod-banner img {
   max-height: 500px;
+}
+
+.about {
+  text-align: justify;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.map iframe {
+  max-width: 1000px;
+  max-height: 1000px;
 }

@@ -6,6 +6,10 @@
 {% load static %}
 <!-- load static -->
 
+<!-- format localization -->
+{% load humanize %}
+<!-- format localization -->
+
 <!-- title -->
 
 <!-- extend block -->
@@ -45,7 +49,7 @@
         </p>
         <br />
         <h3 class="card-title">
-          Price: KSH {{ product_details.product_price }}
+          Price: KSH {{ product_details.product_price|intcomma }}
         </h3>
         <hr />
         <br />
@@ -60,7 +64,8 @@
               />
             </div>
             <button type="submit" class="btn btn-outline-dark container-fluid">
-              Add to cart
+              <i class="bi bi-bag-plus-fill"></i> Add to cart
+              <i class="bi bi-bag-plus-fill"></i>
             </button>
           </form>
         </div>
@@ -78,13 +83,27 @@
     {% else %}
     <!-- else -->
 
+    <!-- if -->
+    {% if error_message %}
+    <!-- if -->
     <h3 class="prod-404">
       <hr />
-      OOPS! Couldn't find E-Comm the product. Something is wrong on our end. We
-      are sorry for the inconvinience and are doing everything to re-establish
-      the E-Comm. shopping experience. Check back in a few. <br />
+      {{ error_message }} <br />
       <hr />
     </h3>
+    <!-- else -->
+    {% else %}
+    <!-- else -->
+    <h3 class="prod-404">
+      <hr />
+      OOPS! Couldn't find E-Comm products. Something is wrong on our end. We are
+      sorry for the inconvinience and are doing everything to re-establish the
+      E-Comm. shopping experience. Check back in a few. <br />
+      <hr />
+    </h3>
+    <!-- endif -->
+    {% endif %}
+    <!-- endif -->
 
     <h3 class="prod-404">E-Comm. Team.</h3>
 

@@ -6,6 +6,10 @@
 {% load static %}
 <!-- load static -->
 
+<!-- format localization -->
+{% load humanize %}
+<!-- format localization -->
+
 <!-- title -->
 
 <!-- extend block -->
@@ -115,7 +119,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">{{ product.short_name }}</h5>
           <p class="card-text text-muted">{{ product.category }}</p>
-          <p class="card-text">KSH {{ product.product_price }}</p>
+          <p class="card-text">KSH {{ product.product_price|intcomma }}</p>
           <a
             href="{% url 'product_details' product.short_name_slug %}"
             class="btn btn-outline-dark"
@@ -184,7 +188,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">{{ product.short_name }}</h5>
           <p class="card-text text-muted">{{ product.category }}</p>
-          <p class="card-text">KSH {{ product.product_price }}</p>
+          <p class="card-text">KSH {{ product.product_price|intcomma }}</p>
           <a
             href="{% url 'product_details' product.short_name_slug %}"
             class="btn btn-outline-dark"
@@ -245,7 +249,7 @@
         <div class="card-body text-center">
           <h5 class="card-title">{{ product.short_name }}</h5>
           <p class="card-text text-muted">{{ product.category }}</p>
-          <p class="card-text">KSH {{ product.product_price }}</p>
+          <p class="card-text">KSH {{ product.product_price|intcomma }}</p>
           <a
             href="{% url 'product_details' product.short_name_slug %}"
             class="btn btn-outline-dark"

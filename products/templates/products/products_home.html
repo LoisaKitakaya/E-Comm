@@ -6,6 +6,10 @@
 {% load static %}
 <!-- load static -->
 
+<!-- format localization -->
+{% load humanize %}
+<!-- format localization -->
+
 <!-- title -->
 
 <!-- extend block -->
@@ -38,8 +42,12 @@
     <div class="card-body text-center">
       <h5 class="card-title">{{ product.short_name }}</h5>
       <p class="card-text text-muted">{{ product.category }}</p>
-      <p class="card-text">KSH {{ product.product_price }}</p>
-      <a href="{% url 'product_details' product.short_name_slug %}" class="btn btn-outline-dark">View Product</a>
+      <p class="card-text">KSH {{ product.product_price|intcomma }}</p>
+      <a
+        href="{% url 'product_details' product.short_name_slug %}"
+        class="btn btn-outline-dark"
+        >View Product</a
+      >
     </div>
     <div class="card-footer text-center">Vendor: {{ product.vendor }}</div>
   </div>
@@ -53,6 +61,17 @@
   {% else %}
   <!-- else -->
 
+  <!-- if -->
+  {% if error_message %}
+  <!-- if -->
+  <h3 class="prod-404">
+    <hr />
+    {{ error_message }} <br />
+    <hr />
+  </h3>
+  <!-- else -->
+  {% else %}
+  <!-- else -->
   <h3 class="prod-404">
     <hr />
     OOPS! Couldn't find E-Comm products. Something is wrong on our end. We are
@@ -60,6 +79,9 @@
     E-Comm. shopping experience. Check back in a few. <br />
     <hr />
   </h3>
+  <!-- endif -->
+  {% endif %}
+  <!-- endif -->
 
   <h3 class="prod-404">E-Comm. Team.</h3>
 
