@@ -1,0 +1,97 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Product Details {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<h2 class="text-center">E-Comm. Store</h2>
+<div class="product-details-container bg-light">
+  <div class="product-details">
+    <!-- if -->
+    {% if product_details %}
+    <!-- if -->
+
+    <div class="card mb-3 container">
+      <img
+        src="{{ product_details.product_thumbnail.url }}"
+        class="img-fluid card-img-top img-prod-details"
+        alt="..."
+      />
+      <hr />
+      <div class="card-body">
+        <h5 class="card-title">{{ product_details.short_name }}</h5>
+        <p class="card-text">{{ product_details.full_name }}</p>
+        <p class="card-text">
+          <small class="text-muted"
+            >Category: {{ product_details.category }}</small
+          >
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Vendor: {{ product_details.vendor }}</small>
+        </p>
+        <br />
+        <h3 class="card-title">
+          Price: KSH {{ product_details.product_price }}
+        </h3>
+        <hr />
+        <br />
+        <div class="text-center">
+          <form action="#" class="add-to-cart-form">
+            <div class="mb-3">
+              <input
+                type="number"
+                name="quantity"
+                id="quantity"
+                class="form-control"
+              />
+            </div>
+            <button type="submit" class="btn btn-dark">Add to cart</button>
+          </form>
+        </div>
+      </div>
+      <hr />
+      <p class="text-center text-primary card-footer toggle-description">
+        toggle product description
+      </p>
+      <div class="card-body" id="prod-description">
+        {{ product_details.product_description|safe }}
+      </div>
+    </div>
+
+    <!-- else -->
+    {% else %}
+    <!-- else -->
+
+    <h3 class="prod-404">
+      <hr />
+      OOPS! Couldn't find E-Comm the product. Something is wrong on our end. We
+      are sorry for the inconvinience and are doing everything to re-establish
+      the E-Comm. shopping experience. Check back in a few. <br />
+      <hr />
+    </h3>
+
+    <h3 class="prod-404">E-Comm. Team.</h3>
+
+    <!-- endif -->
+    {% endif %}
+    <!-- endif -->
+  </div>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

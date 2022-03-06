@@ -79,4 +79,13 @@ $(document).ready(function () {
     divProducts.hide();
     divOrders.fadeIn();
   });
+
+  var prodDescription = $("#prod-description");
+  var toggleDescription = $(".toggle-description");
+
+  prodDescription.hide();
+
+  toggleDescription.click(function () {
+    prodDescription.slideToggle();
+  });
 });

@@ -189,3 +189,24 @@ html {
 .prod-404 {
   text-align: justify;
 }
+
+.product-details {
+  padding: 1rem;
+}
+
+.img-prod-details {
+  max-width: 600px;
+  max-height: 600px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.toggle-description {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.add-to-cart-form {
+  width: 50%;
+  margin: auto;
+}

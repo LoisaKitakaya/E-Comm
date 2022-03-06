@@ -3,7 +3,6 @@ from .forms import CreateProduct
 from .models import VendorProfile, Product
 from django.db.models import Q
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import logout as dj_logout, login as dj_login
 
 # Create your views here.
 @login_required(login_url='login')
@@ -124,6 +123,16 @@ def products(request):
     }
 
     return render(request, 'products/products_home.html', context)
+
+def product_details(request, short_name_slug):
+
+    prod_item = Product.objects.get(short_name_slug=short_name_slug)
+
+    context = {
+        'product_details': prod_item,
+    }
+
+    return render(request, 'products/products_detail.html', context)
 
 def search(request):
 

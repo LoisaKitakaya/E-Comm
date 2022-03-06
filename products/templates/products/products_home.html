@@ -28,7 +28,7 @@
   <!-- for -->
 
   <!-- products -->
-  <div class="card" style="width: 18rem" id="prod-card">
+  <div class="card" style="width: 20rem" id="prod-card">
     <img
       src="{{ product.product_thumbnail.url }}"
       class="card-img-top img-fluid"
@@ -39,7 +39,7 @@
       <h5 class="card-title">{{ product.short_name }}</h5>
       <p class="card-text text-muted">{{ product.category }}</p>
       <p class="card-text">KSH {{ product.product_price }}</p>
-      <a href="#" class="btn btn-dark">View Product</a>
+      <a href="{% url 'product_details' product.short_name_slug %}" class="btn btn-outline-dark">View Product</a>
     </div>
     <div class="card-footer text-center">Vendor: {{ product.vendor }}</div>
   </div>
