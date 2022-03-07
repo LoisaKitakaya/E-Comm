@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.contrib import messages
 from .cart import Cart
 from .forms import CheckoutForm
-from orders.utilities import checkout
+from orders.utilities import checkout, notify_vendor, notify_customer
 
 # Create your views here.
 def cart(request):
@@ -48,6 +48,10 @@ def cart(request):
             order = checkout(request, first_name, last_name, email, address, city, place, phone, cart.get_total_cost())
 
             messages.success(request, 'Order submitted successfully.')
+
+            notify_vendor(order)
+
+            notify_customer(order)
 
             cart.clear()
 

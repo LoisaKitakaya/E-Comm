@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <title>E-Comm.</title>
+    <style>
+      html {
+        width: 100% !important;
+      }
+
+      body {
+        height: fit-content !important;
+        margin: auto !important;
+        padding: 1rem !important;
+      }
+
+      ul {
+        width: fit-content !important;
+      }
+    </style>
+  </head>
+
+  <body class="container">
+    <!--  -->
+    <hr />
+    <h1>New order</h1>
+    <br />
+    <p>
+      Your have a new order. Please process the order and make them available
+      for E-Comm. shipping within the next 24 hrs. <br />
+      For any inquiries, comments, compliments, complaints reply to this email.
+    </p>
+    <p>Thank you for selling on E-Comm.</p>
+    <span class="text-muted">
+      <small>Customer information summary</small>
+    </span>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Name: {{ order.first_name }} {{ order.last_name }}
+      </li>
+      <li class="list-group-item">Address: {{ order.address }}</li>
+      <li class="list-group-item">
+        City & place: {{ order.place }}, {{ order.city }}
+      </li>
+      <li class="list-group-item">Email: {{ order.email }}</li>
+      <li class="list-group-item">Phone: {{ order.phone }}</li>
+    </ul>
+    <hr />
+    <h1>Products</h1>
+    <br />
+    <table
+      class="table table-striped"
+      width="100%"
+      cellspacing="0"
+      cellpadding="0"
+    >
+      <thead>
+        <tr class="text-center">
+          <th scope="col">#</th>
+          <th scope="col">Product</th>
+          <th scope="col">Price</th>
+          <th scope="col">Quantity</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- for -->
+        {% for item in order.items.all %}
+        <!-- for -->
+        <!-- if -->
+        {% if item.vendor == vendor %}
+        <!-- if -->
+        <tr class="text-center">
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{ item.product.short_name }}</td>
+          <td>KSH {{ item.product.product_price }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>KSH {{ item.get_total_price }}</td>
+        </tr>
+        <!-- endif -->
+        {% endif %}
+        <!-- endif -->
+        <!-- endfor -->
+        {% endfor %}
+        <!-- endfor -->
+      </tbody>
+    </table>
+    <br />
+    <hr />
+    <!--  -->
+  </body>
+</html>

@@ -88,7 +88,8 @@ html {
 
 .vendor-forms,
 .product-forms,
-.contact-forms {
+.contact-forms,
+.checkout-form {
   width: 85%;
   margin: auto;
 }
@@ -195,7 +196,8 @@ html {
   text-align: justify;
 }
 
-.product-details {
+.product-details,
+.cart-details {
   padding: 1rem;
 }
 
@@ -206,7 +208,8 @@ html {
   padding: 1rem;
 }
 
-.toggle-description {
+.toggle-description,
+.to-checkout {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -220,7 +223,8 @@ html {
 .about-container,
 .contacts-container,
 .about,
-.contact {
+.contact,
+.success-container {
   padding: 1rem;
 }
 
@@ -259,4 +263,30 @@ html {
 .map iframe {
   max-width: 1000px;
   max-height: 1000px;
+}
+
+.app-message {
+  position: fixed !important;
+  top: 5rem !important;
+  right: 1rem !important;
+  max-width: 50% !important;
+  z-index: 100 !important;
+  animation: fadeInRight;
+  animation-duration: 300ms;
+}
+
+.badge {
+  padding: 0.15em auto !important;
+}
+
+.qty-control a {
+  text-decoration: none;
+}
+
+.card-success {
+  text-align: justify !important;
+}
+
+.card-success img {
+  max-height: 400px;
 }

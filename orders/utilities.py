@@ -1,5 +1,8 @@
 from cart.cart import Cart
 from .models import Order, OrderItem
+from django.conf import settings
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 def checkout(request, first_name, last_name, email, address, city, place, phone, amount):
 
@@ -12,3 +15,30 @@ def checkout(request, first_name, last_name, email, address, city, place, phone,
         order.vendors.add(item['product'].vendor)
 
     return order
+
+def notify_vendor(order):
+
+    from_email = settings.EMAIL_HOST_USER
+
+    for vendor in order.vendors.all():
+        to_email = vendor.user.email
+        subject = 'New order'
+        text_content = 'You have a new order!'
+        html_content = render_to_string('orders/notify_vendor.html', {'order': order, 'vendor': vendor})
+
+        msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+        msg.attach_alternative(html_content, 'text/html')
+        msg.send()
+
+def notify_customer(order):
+
+    from_email = settings.EMAIL_HOST_USER
+
+    to_email = order.email
+    subject = 'Order confirmation'
+    text_content = 'Thank you for the order!'
+    html_content = render_to_string('orders/notify_customer.html', {'order': order})
+
+    msg = EmailMultiAlternatives(subject, text_content, from_email, [to_email])
+    msg.attach_alternative(html_content, 'text/html')
+    msg.send()
