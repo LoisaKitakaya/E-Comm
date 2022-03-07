@@ -88,4 +88,13 @@ $(document).ready(function () {
   toggleDescription.click(function () {
     prodDescription.slideToggle();
   });
+
+  var beginCheckout = $(".to-checkout");
+  var checkoutContainer = $(".checkout-container");
+
+  checkoutContainer.hide();
+
+  beginCheckout.click(function () {
+    checkoutContainer.slideToggle();
+  });
 });

@@ -1,0 +1,48 @@
+<!-- extend base template -->
+{% extends 'base.html' %}
+<!-- extend base template -->
+
+<!-- load static -->
+{% load static %}
+<!-- load static -->
+
+<!-- title -->
+
+<!-- extend block -->
+{% block title %} Success {% endblock %}
+<!-- extend block -->
+
+<!-- title -->
+
+<!-- body -->
+
+<!-- extend block -->
+{% block body %}
+<div class="success-container bg-light">
+  <div class="success">
+    <div class="card mb-3 card-success">
+      <img
+        src="{% static 'img/banner_success.jpg' %}"
+        class="card-img-top img-fluid"
+        alt="..."
+      />
+      <div class="card-body">
+        <h1 class="card-title">Success!</h1>
+        <p class="card-text">
+          Your order has been received. You will receive an email with your
+          purchase invoice and further information on your order. <br />
+          Thank your for shopping with E-Comm.
+        </p>
+        <p class="card-text">
+          <small class="text-muted">
+            Much <i class="bi bi-hearts"></i> from the E-Comm. team
+          </small>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+<!-- extend block -->
+
+<!-- body -->

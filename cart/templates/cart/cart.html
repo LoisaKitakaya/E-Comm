@@ -121,7 +121,7 @@
     <!-- else -->
     {% else %}
     <!-- else -->
-    <h3 class="prod-404">
+    <h3 class="prod-404 text-center">
       <hr />
       Cart is empty. <br />
       <hr />
@@ -134,35 +134,27 @@
     {% endif %}
     <!-- endif -->
 
-    <hr />
-
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt beatae
-      asperiores nemo natus numquam delectus commodi ut aliquam, atque, dicta
-      quaerat, accusantium illum iure placeat molestias odit. A beatae, optio
-      ipsum assumenda mollitia maiores quaerat iure sit dignissimos quibusdam
-      reprehenderit tempore laborum quis reiciendis esse hic pariatur repellat
-      libero delectus! Atque est quae ea ipsa ab reiciendis doloremque, eaque
-      nulla! Repudiandae sapiente, itaque, eum rem praesentium mollitia
-      accusantium, eius deserunt quis nemo magnam consectetur quaerat optio
-      voluptatem corrupti doloremque atque quos accusamus qui deleniti ipsum
-      animi assumenda culpa. Explicabo magnam adipisci qui, recusandae sint
-      reprehenderit! Qui iste error quasi maxime tenetur quis accusantium aut
-      laudantium distinctio atque consequatur assumenda in quia ex doloribus
-      porro explicabo labore et eligendi soluta, consequuntur, corporis ratione
-      magnam? Minus eaque voluptate, quae quos sapiente, nesciunt quibusdam
-      aliquam eum ullam tempora itaque officiis earum temporibus animi fugit!
-      Repudiandae placeat libero ipsa eius ut inventore unde voluptatum
-      exercitationem quod laborum aspernatur eligendi quis, facilis mollitia
-      ducimus, quibusdam eos cupiditate. Maiores, incidunt hic. Magni labore
-      nesciunt molestiae debitis, expedita optio incidunt consequuntur sed sequi
-      non laboriosam eius veniam, praesentium provident possimus consequatur id.
-      Accusamus esse minus fugit, dolores suscipit soluta saepe error quasi
-      dolorum magnam perferendis, alias deleniti, et aliquid exercitationem eos
-      tenetur maxime commodi quam dignissimos provident optio voluptates iste.
-      Voluptatum in repellendus molestias porro distinctio tempore hic
-      reiciendis aperiam ratione aut magni eius, facere eum illo?
+    <br />
+    <p class="text-center text-primary card-footer to-checkout">
+      begin checkout
     </p>
+    <div class="checkout-container">
+      <div class="card text-center checkout-form">
+        <h5 class="card-header">Checkout Form</h5>
+        <div class="card-body">
+          <form action="#" method="post" class="">
+            <!-- csrf & form -->
+            {% csrf_token %}
+            <!-- csrf & form -->
+            {% bootstrap_form form %}
+            <!-- csrf & form -->
+            <button type="submit" class="btn btn-outline-dark">
+              Proceed to payment
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock %}

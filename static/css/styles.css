@@ -88,7 +88,8 @@ html {
 
 .vendor-forms,
 .product-forms,
-.contact-forms {
+.contact-forms,
+.checkout-form {
   width: 85%;
   margin: auto;
 }
@@ -207,7 +208,8 @@ html {
   padding: 1rem;
 }
 
-.toggle-description {
+.toggle-description,
+.to-checkout {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -221,7 +223,8 @@ html {
 .about-container,
 .contacts-container,
 .about,
-.contact {
+.contact,
+.success-container {
   padding: 1rem;
 }
 
@@ -278,4 +281,12 @@ html {
 
 .qty-control a {
   text-decoration: none;
+}
+
+.card-success {
+  text-align: justify !important;
+}
+
+.card-success img {
+  max-height: 400px;
 }
